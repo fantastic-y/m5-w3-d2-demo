@@ -1,4 +1,5 @@
 import React from "react";
+import Lists from "./Lists";
 
 class App extends React.Component {
     constructor(props) {
@@ -26,7 +27,11 @@ class App extends React.Component {
     }
 
     render() {
-      const listTable = this.state.loading ? () : ();
+      const listTable = this.state.loading ? (
+        <span>Loading Data......Please be patient.</span>
+      ) : (
+        <Lists alldata={this.state.alldata} />
+      );
       return (
         <>
           <div className="container">
@@ -39,6 +44,7 @@ class App extends React.Component {
                 Get Lists
               </button>
             </span>
+            {listTable}
           </div>
         </>
       )
